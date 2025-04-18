@@ -1,19 +1,26 @@
 # atividade_A3
 
-🧠 Funcionalidades
-O sistema oferece as seguintes funcionalidades:
 
-📄 Leitura de Dados
-Ler os dados do grafo representado por conexões entre creches a partir de um arquivo .txt.
+## 🧠 Funcionalidades
 
-🔗 Conexões por Creche
-Informar o número de conexões possíveis partindo de cada creche.
+- 📄 **Leitura de Dados**  
+  Leitura dos dados do grafo representado em um arquivo `.txt`.
 
-📋 Listagem de Conexões Ordenadas
-Para uma creche específica, listar as creches conectadas em ordem crescente de distância.
+- 🔗 **Conexões por Creche**  
+  Exibe o número de conexões possíveis a partir de cada creche.
 
-📏 Distância entre Creches
-Informar a distância entre duas creches específicas, caso exista uma conexão.
+- 📋 **Listagem de Conexões Ordenadas**  
+  Para uma creche específica, lista as creches conectadas em ordem crescente de distância.
 
-➕ Inserção de Novas Conexões
-Permitir a adição de novas conexões entre creches manualmente.
+- 📏 **Distância entre Creches**  
+  Informa a distância entre duas creches informadas, se houver conexão.
+
+- ➕ **Inserção de Novas Conexões**  
+  Permite adicionar novas conexões entre creches.
+
+## ⚙️ Requisitos Técnicos
+
+- As conexões entre creches são armazenadas em uma **matriz de adjacência estática**, utilizando `0` e `1` para indicar a presença de ligação.
+- As creches e as distâncias são armazenadas em uma **lista simplesmente encadeada**, implementada manualmente, **sem uso de estruturas nativas da linguagem**, como `ArrayList` ou `LinkedList`.
+
+## 📁 Formato do Arquivo `.txt
