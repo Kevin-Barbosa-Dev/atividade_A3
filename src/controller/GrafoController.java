@@ -36,11 +36,15 @@ public class GrafoController {
     }
 
     public void listaVizinhosOrdenadosPorDistancia(int indice) {
-        Vizinho[] vizinhos = grafo.getVizinhosOrdenados(indice);
-        String nome = grafo.getNomePorIndice(indice);
-        view.tituloOrdem(nome);
-        for (Vizinho v : vizinhos) {
-            view.exibirListaOrdenadaDeVizinhos(nome, vizinhos, v.getNomeLugar(), v.getDistancia());
+        try {
+            Vizinho[] vizinhos = grafo.getVizinhosOrdenadosCrescente(indice);
+            String nome = grafo.getNomePorIndice(indice);
+            view.tituloOrdem(nome);
+            for (Vizinho v : vizinhos) {
+                view.exibirListaOrdenadaDeVizinhos(nome, vizinhos, v.getNomeLugar(), v.getDistancia());
+            }
+        } catch (IndexOutOfBoundsException e) {
+            view.indexInvalido();
         }
     }
     public void salvarVizinhos(String caminhoArquivo) {
