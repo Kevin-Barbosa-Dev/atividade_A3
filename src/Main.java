@@ -47,5 +47,6 @@ public class Main {
 
         controller.buscarVizinho(10);
         controller.listaVizinhosOrdenadosPorDistancia(9);
+        controller.salvarVizinhos("salvar");
     }
 }
