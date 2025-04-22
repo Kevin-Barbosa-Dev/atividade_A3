@@ -4,6 +4,10 @@ import model.Grafo;
 import model.Vizinho;
 import view.GrafoView;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 public class GrafoController {
     private Grafo grafo;
     private GrafoView view;
@@ -39,5 +43,24 @@ public class GrafoController {
             view.exibirListaOrdenadaDeVizinhos(nome, vizinhos, v.getNomeLugar(), v.getDistancia());
         }
     }
+    public void salvarVizinhos(String caminhoArquivo) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(caminhoArquivo))) {
+            for (int i = 0; i < grafo.getTamanho(); i++) {
+                String nome = grafo.getNomePorIndice(i);
+                Vizinho[] vizinhos = grafo.getVizinhosOrdenados(i);
 
+                writer.println("Vizinhos de " + nome + ":");
+
+                for (Vizinho v : vizinhos) {
+                    writer.printf("Vértice: %s - Distância: %.1f\n", v.getNomeLugar(), v.getDistancia());
+                }
+
+                writer.println(); // pula uma linha entre os grupos
+            }
+
+            System.out.println("Arquivo salvo com sucesso: " + caminhoArquivo);
+        } catch (IOException e) {
+            System.out.println("Erro ao salvar arquivo: " + e.getMessage());
+        }
+    }
 }
