@@ -2,26 +2,20 @@ package model;
 
 public class ListaEncadeadaCreche {
     private Lugar head;
+    private Lugar ultimo;
+    private int tamanho = 0;
 
-    private int tamanho;
 
-    public ListaEncadeadaCreche() {
-        this.head = null;
-        this.tamanho = 0;
-    }
-
-    public void adicionarCreche(String nome) {
+    public Lugar adicionarCreche(String nome) {
         Lugar nova = new Lugar(nome);
         if (head == null) {
             head = nova;
         } else {
-            Lugar atual = head;
-            while (atual.proxima != null) {
-                atual = atual.proxima;
-            }
-            atual.proxima = nova;
+            ultimo.setProxima(nova);
         }
+        ultimo = nova;
         tamanho++;
+        return nova;
     }
 
     public int getTamanho() {
@@ -31,21 +25,18 @@ public class ListaEncadeadaCreche {
     public String getNomePorIndice(int index) {
         Lugar atual = head;
         int contador = 0;
-        while (atual != null) {
-            if (contador == index) {
-                return atual.nome;
-            }
-            atual = atual.proxima;
+        while (contador < index) {
+            atual = atual.getProxima();
             contador++;
         }
-        return null;
+        return atual.getNome();
     }
 
     public void listar() {
         Lugar atual = head;
         while (atual != null) {
-            System.out.println(atual.nome);
-            atual = atual.proxima;
+            System.out.println(atual.getNome());
+            atual = atual.getProxima();
         }
     }
 }
