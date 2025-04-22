@@ -51,7 +51,7 @@ public class GrafoController {
         try (PrintWriter writer = new PrintWriter(new FileWriter(caminhoArquivo))) {
             for (int i = 0; i < grafo.getTamanho(); i++) {
                 String nome = grafo.getNomePorIndice(i);
-                Vizinho[] vizinhos = grafo.getVizinhosOrdenados(i);
+                Vizinho[] vizinhos = grafo.getVizinhosOrdenadosCrescente(i);
 
                 writer.println("Vizinhos de " + nome + ":");
 
