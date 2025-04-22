@@ -42,4 +42,8 @@ public class GrafoView {
     public void tituloOrdem(String nomeVertice) {
         System.out.println("Vizinhos de " + nomeVertice + " em ordem crescente de distância:");
     }
+
+    public void indexInvalido() {
+        throw new IndexOutOfBoundsException("Índice inválido.");
+    }
 }
