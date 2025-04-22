@@ -40,21 +40,33 @@ public class Grafo {
         return cont;
     }
 
-    public Vizinho[] getVizinhosOrdenados(int indice) {
-        int cont = contarVizinhos(indice);
+    public Vizinho[] getVizinhosOrdenadosCrescente(int verticePesquisado) {
+        int quantidadeDeVizinhos = contarVizinhos(verticePesquisado);
 
-        if (cont == 0) {
+        if (quantidadeDeVizinhos == 0) {
             return new Vizinho[0];
         }
 
-        Vizinho[] vizinhos = new Vizinho[cont];
-        int index = 0;
-
-        for (int i = 0; i < tamanho; i++) {
-            if (i != indice && matrizAdjacente[indice][i] != -1) {
-                vizinhos[index++] = new Vizinho(lista.getNomePorIndice(index), matrizAdjacente[indice][i]);
+        Vizinho[] vizinhos = new Vizinho[quantidadeDeVizinhos];
+        int indiceVizinho = 0;
+        for (int j = 0; j < tamanho; j++) {
+            if (j != verticePesquisado && matrizAdjacente[verticePesquisado][j] != -1) {
+                vizinhos[indiceVizinho++] = new Vizinho(
+                        lista.getNomePorIndice(j),
+                        matrizAdjacente[verticePesquisado][j]);
             }
         }
+
+        for (int i = 0; i < quantidadeDeVizinhos - 1; i++) {
+            for (int j = 0; j < quantidadeDeVizinhos - i - 1; j++) {
+                if (vizinhos[j].getDistancia() > vizinhos[j + 1].getDistancia()) {
+                    Vizinho temporario = vizinhos[j];
+                    vizinhos[j] = vizinhos[j + 1];
+                    vizinhos[j + 1] = temporario;
+                }
+            }
+        }
+
         return vizinhos;
     }
 
