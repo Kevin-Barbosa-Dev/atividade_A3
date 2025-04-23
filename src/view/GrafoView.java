@@ -46,4 +46,12 @@ public class GrafoView {
     public void indexInvalido() {
         throw new IndexOutOfBoundsException("Índice inválido.");
     }
+
+    public void exibirErroIndicesInvalidos() {
+        System.out.println("Índices de vértices inválidos.");
+    }
+
+    public void exibirDistancia(int origem, int destino, float distancia) {
+        System.out.println("A distância entre os vértices " + origem + " e " + destino + " é: " + distancia + " km");
+    }
 }
