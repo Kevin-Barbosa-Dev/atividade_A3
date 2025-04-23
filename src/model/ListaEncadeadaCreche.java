@@ -3,8 +3,6 @@ package model;
 public class ListaEncadeadaCreche {
     private Lugar head;
     private Lugar ultimo;
-    private int tamanho = 0;
-
 
     public Lugar adicionarCreche(String nome) {
         Lugar nova = new Lugar(nome);
@@ -14,13 +12,9 @@ public class ListaEncadeadaCreche {
             ultimo.setProxima(nova);
         }
         ultimo = nova;
-        tamanho++;
         return nova;
     }
 
-    public int getTamanho() {
-        return tamanho;
-    }
 
     public String getNomePorIndice(int index) {
         Lugar atual = head;
