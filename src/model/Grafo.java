@@ -70,6 +70,13 @@ public class Grafo {
         return vizinhos;
     }
 
+    public float distanciaEntreCreches(int origem, int destino) {
+        if (origem >= 0 && origem < matrizAdjacente.length && destino >= 0 && destino < matrizAdjacente.length) {
+            return matrizAdjacente[origem][destino];
+        }
+        return -1;
+    }
+
     public float[][] getMatrizAdjacente() {
         return matrizAdjacente;
     }
