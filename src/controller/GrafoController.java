@@ -47,6 +47,15 @@ public class GrafoController {
             view.indexInvalido();
         }
     }
+
+    public void distanciaEntreCreches(int origem, int destino) {
+        float distacia = grafo.distanciaEntreCreches(origem, destino);
+        if (distacia == -1) {
+            view.exibirErroIndicesInvalidos();
+            return;
+        }
+        view.exibirDistancia(origem, destino, distacia);
+    }
     public void salvarVizinhos(String caminhoArquivo) {
         try (PrintWriter writer = new PrintWriter(new FileWriter(caminhoArquivo))) {
             for (int i = 0; i < grafo.getTamanho(); i++) {
